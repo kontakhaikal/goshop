@@ -1,0 +1,20 @@
+package views
+
+import "github.com/kontakhaikal/goshop/repository"
+
+templ Home(users []repository.User) {
+	<head>
+		<link rel="stylesheet" href="/public/main.css"/>
+	</head>
+	<div>
+		<ul class="text-red-500">
+			for _, v := range users {
+				<li>{ v.Id }: { v.Name }</li>
+			}
+		</ul>
+		<form action="/" method="POST">
+			<input class="shadow shadow-md" name="name" id="name"/>
+			<button class="px-2 py-1 shadow shadow-md" type="submit">Add</button>
+		</form>
+	</div>
+}
