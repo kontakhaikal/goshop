@@ -5,6 +5,6 @@
 		"autoprefixer": "^10.4.16"
 	},
 	"scripts": {
-		"dev": "tailwindcss -i ./src/input.css -o ./public/main.css --watch"
+		"dev": "tailwindcss -i ./resources/styles/main.css -o ./public/main.css --watch"
 	}
 }
