@@ -3,7 +3,7 @@ package model
 import "time"
 
 type Address struct {
-	Id string `gorm:"size:36,not mull"`
+	Id string `gorm:"size:36;not null;uniqueIndex;primary_key"`
 	User
 	UserId    string `gorm:"size:36;index"`
 	Name      string `gorm:"size:100,not mull"`

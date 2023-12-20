@@ -6,6 +6,7 @@ type Section struct {
 	ID         string `gorm:"size:36;not null;uniqueIndex;primary_key"`
 	Name       string `gorm:"size:100"`
 	Slug       string `gorm:"size:100"`
+	CreatedAt  time.Time
 	UpdateAt   time.Time
 	Categories []Category
 }

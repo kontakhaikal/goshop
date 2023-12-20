@@ -25,6 +25,10 @@ func main() {
 		&model.Product{},
 		&model.ProductImage{},
 		&model.Section{},
+		&model.Order{},
+		&model.OrderCustomer{},
+		&model.OrderItem{},
+		&model.Shipment{},
 	); err != nil {
 		log.Fatalln(err)
 	}

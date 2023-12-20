@@ -7,7 +7,7 @@ import (
 )
 
 type Order struct {
-	ID                  string
+	ID                  string `gorm:"size:36;not null;uniqueIndex;primary_key"`
 	UserID              string
 	User                User
 	OrderItems          []OrderItem
@@ -16,22 +16,22 @@ type Order struct {
 	Status              int
 	OrderDate           time.Time
 	PaymentDue          time.Time
-	PaymentStatus       string
-	PaymentToken        string
-	BaseTotalPrice      float64
-	TaxAmount           float64
-	DiscountAmount      float64
-	DiscountPercent     float64
-	ShippingCost        float64
-	GrandTotal          float64
-	Note                string
-	ShippingCourier     string
-	ShippingServiceName string
-	ApprovedBy          string
+	PaymentStatus       string  `gorm:"size:50;index"`
+	PaymentToken        string  `gorm:"size:100;index"`
+	BaseTotalPrice      float64 `gorm:"type:decimal(16,2)"`
+	TaxAmount           float64 `gorm:"type:decimal(16,2)"`
+	DiscountAmount      float64 `gorm:"type:decimal(10,2)"`
+	DiscountPercent     float64 `gorm:"type:decimal(16,2)"`
+	ShippingCost        float64 `gorm:"type:decimal(10,2)"`
+	GrandTotal          float64 `gorm:"type:decimal(16,2)"`
+	Note                string  `gorm:"type:text"`
+	ShippingCourier     string  `gorm:"size:100"`
+	ShippingServiceName string  `gorm:"size:100"`
+	ApprovedBy          string  `gorm:"size:36"`
 	ApprovedAt          time.Time
-	CancelledBy         string
+	CancelledBy         string `gorm:"size:36"`
 	CancelledAt         time.Time
-	CancellationNote    string
+	CancellationNote    string `gorm:"size:225"`
 	CreatedAt           time.Time
 	UpdatedAt           time.Time
 	DeletedAt           gorm.DeletedAt

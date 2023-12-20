@@ -24,5 +24,5 @@ type Product struct {
 	UpdateAt         time.Time
 	DeletedAt        gorm.DeletedAt
 	ProductImages    []ProductImage
-	Categories       []Category
+	Categories       []Category `gorm:"many2many:product_categories"`
 }
