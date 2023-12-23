@@ -1,0 +1,77 @@
+{{ template "partials/header" .}}
+<main>
+  <section class="bg-slate-50">
+    <div class="py-4 container px-4">
+      <a class="text-blue-900" href="/">Home</a>
+      <span> / </span>
+      <a class="text-blue-900" href="/products">Products</a>
+      <span> / </span>
+      <span>{{ .Product.Name }}</span>
+    </div>
+  </section>
+  <section class="mt-6">
+    <div class="px-4 container">
+      <div class="grid grid-cols-2 border border-gray-200 rounded-md">
+        <div class="col-span-1">
+          <img class="rounded-l-md" src="/public/p1.jpg" alt="" />
+        </div>
+        <div class="col-span-1 pl-6 pt-8 pb-8 pr-10">
+          <h1 class="text-2xl font-semibold">{{ .Product.Name }}</h1>
+          <h2 class="text-xl mt-2">Rp. {{ .Product.Price }}</h2>
+          <h3 class="text-gray-700 mt-2">{{ .Product.Description }}</h3>
+          <form class="mt-4" action="">
+            <div class="mb-2">
+              <label class="block mb-1 text-sm" for="">Size</label>
+              <select class="w-full py-2 px-2 rounded-md" name="size">
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-1 text-sm" for="">Color</label>
+              <select class="w-full py-2 px-2 rounded-md" name="color">
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+              </select>
+            </div>
+            <div class="flex mt-6 items-end justify-between">
+              <div>
+                <label class="block mb-1 text-sm" for="">Quantity</label>
+                <input
+                  class="py-1 px-2 w-16 border border-slate-200 rounded-md"
+                  name="quantity"
+                />
+              </div>
+              <div class="flex gap-4">
+                <button
+                  type="submit"
+                  class="bg-green-700 py-1.5 px-4 font-semibold text-white rounded-md"
+                >
+                  ADD TO CART
+                </button>
+                <button class="bg-gray-200 py-2 px-4 rounded-md" type="button">
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{{ template "partials/footer" .}}

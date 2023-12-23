@@ -1,10 +1,12 @@
 {
 	"devDependencies": {
-		"tailwindcss": "^3.3.6",
+		"autoprefixer": "^10.4.16",
+		"browser-sync": "^2.29.3",
 		"postcss": "^8.4.32",
-		"autoprefixer": "^10.4.16"
+		"tailwindcss": "^3.3.6"
 	},
 	"scripts": {
-		"dev": "air & tailwindcss -i ./resources/styles/main.css -o ./public/main.css --watch"
+		"dev": "tailwindcss -i ./resources/styles/main.css -o ./public/main.css --watch",
+		"sync": "browser-sync start --proxy \"http://localhost:8000\" --files \".\" --no-online"
 	}
 }

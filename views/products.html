@@ -1,0 +1,63 @@
+{{ template "partials/header" .}}
+<main>
+  <section class="bg-slate-50">
+    <div class="py-4 container px-4">
+      <a class="text-blue-900" href="/">Home</a> / Products
+    </div>
+  </section>
+  <section class="mt-8">
+    <div class="px-4 container grid grid-cols-4 gap-x-6">
+      <div class="flex flex-col gap-6 col-span-1">
+        <div class="border border-gray-200 max-w-md rounded-md">
+          <div class="bg-gray-900 rounded-t-md text-white pt-4 pb-3 px-6">
+            <h3 class="font-semibold text-lg">Categories</h3>
+          </div>
+          <ul class="flex flex-col gap-2 text-gray-800 pt-2 pb-4 px-6">
+            <li><a href="">Fashions</a></li>
+            <li>
+              <a href="">Electronics</a>
+              <ul class="ml-4 mt-1 flex flex-col gap-1">
+                <li><a href="">Handphone</a></li>
+                <li><a href="">Laptop</a></li>
+              </ul>
+            </li>
+            <li><a href="">Home and Kitchen</a></li>
+            <li><a href="">Baby and Toys</a></li>
+            <li><a href="">Digital Goods</a></li>
+          </ul>
+        </div>
+
+        <div class="border border-gray-200 max-w-md rounded-md">
+          <div class="bg-gray-900 rounded-t-md text-white pt-4 pb-3 px-6">
+            <h3 class="font-semibold text-lg">Brands</h3>
+          </div>
+          <ul class="flex flex-col gap-2 text-gray-800 pt-2 pb-4 px-6">
+            <li><a href="">Apple</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-span-3">
+        <ul class="flex flex-wrap gap-4 justify-stretch">
+          {{ range .Products }}
+          <li
+            class="w-[14.5rem] border h-min border-gray-200 rounded-md hover:shadow-sm"
+          >
+            <a href="/products/{{ .Slug }}">
+              <img
+                class="w-full h-full object-cover"
+                src="/public/p1.jpg"
+                alt=""
+              />
+              <div class="py-2 px-4">
+                <p class="text-gray-700">{{ .Name }}</p>
+                <p class="text-lg font-semibold">$ {{ .Price }}</p>
+              </div>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+{{ template "partials/footer" .}}
